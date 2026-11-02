@@ -4,7 +4,7 @@ FROM python:3.12-slim-bookworm
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PORT=8000 \
+    PORT=3003 \
     HOST=0.0.0.0 \
     DATA_DIR=/data
 
@@ -26,7 +26,7 @@ COPY app ./app
 
 USER app
 
-EXPOSE 8000
+EXPOSE 3003
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
     CMD curl -fsS "http://127.0.0.1:${PORT}/health" || exit 1
